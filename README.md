@@ -8,8 +8,13 @@ The second is a collector endpoint.  It reports on the collection of results in 
 # To deploy:
 1. wt cron schedule -s SITE_ENDPOINTS=\<csv of endpoints to choose randomly\> -s SITEBASE=\<site to report on, label\> -s SECRET=\<shared secret\> -s RESULT_URL=\<where are we posting data to?\> "*/1 * * * *" pinger.js
  * This will deploy the cron task to ping a site
+ * SITE_ENDPOINTS are endpoints to check against at random each execution
+ * SITEBASE is the base that these will be part of a collection
+ * SECRET is the shared secret to be used
+ * RESULT_URL is the endpoint that result will be reported to
 2. wt create -s SECRET=\<SHARED_SECRET\> status.js
  * This will deploy the status 'app'
+ * SECRET is the shared secret
 3. Go to \<status task url\>/status.html OR \<status task url\>/status
  * This will display a simple html webpage of the last 60 minutes of results using server-side rendering OR the json representation of it
 
